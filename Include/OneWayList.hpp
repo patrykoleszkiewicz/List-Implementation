@@ -10,6 +10,7 @@ public:
 	std::size_t size();
 	void print(std::ostream& str);
 	
+	OneWayList();
 private:
 	struct Element
 	{
