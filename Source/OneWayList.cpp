@@ -51,3 +51,9 @@ T& OneWayList<T>::at(std::size_t index)
 		throw std::out_of_range();
 	}
 }
+
+template<class T>
+std::size_t OneWayList::size()
+{
+	return _size;
+}

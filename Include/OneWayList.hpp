@@ -7,8 +7,8 @@ class OneWayList
 public:
 	void pushBack(const T& value);
 	T& at(std::size_t index);
-	std::size_t size();
-	void print(std::ostream& str);
+	std::size_t size() const;
+	void print(std::ostream& str) const;
 	
 	OneWayList();
 private:
