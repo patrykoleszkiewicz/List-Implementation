@@ -1,6 +1,5 @@
 #pragma once
 #include <ostream>
-#include <iostream>
 
 template <class T>
 class OneWayList
@@ -61,7 +60,20 @@ public:
 		return _size;
 	}
 	
-	//void print(std::ostream& str) const
+	void print(std::ostream& str, char separator = 0) const
+	{
+		Element* current = _first;
+		
+		while(current != nullptr)
+		{
+			str << current->value;
+			if(separator > 0)
+			{
+				str << separator;
+			}
+			current = current->next;
+		}
+	}
 	
 private:
 	struct Element
