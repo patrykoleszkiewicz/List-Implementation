@@ -11,6 +11,8 @@ int main()
 	list.pushBack(200);
 	list.pushBack(250);
 	
-	std::cout << list.at(0) << "\n";
-	list.print(std::cout);
+	std::cout << list.at(0) << "\n"; //50
+	std::cout << list.at(3) << "\n"; //200
+	
+	list.print(std::cout, ' '); //50 100 150 200 250
 }
