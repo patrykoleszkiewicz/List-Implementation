@@ -1,5 +1,6 @@
 #pragma once
 #include <ostream>
+#include <iostream>
 
 template <class T>
 class OneWayList
@@ -42,7 +43,7 @@ public:
 		{
 			Element* current = _first;
 			
-			for(std::size_t ite = 1; ite < index; ++ite)
+			for(std::size_t ite = 0; ite < index; ++ite)
 			{
 				current = current->next;
 			}
@@ -51,7 +52,7 @@ public:
 		}
 		else
 		{
-			//throw std::out_of_range;
+			throw "";
 		}
 	}
 	
@@ -60,7 +61,7 @@ public:
 		return _size;
 	}
 	
-	//void print(std::ostream& str) const;
+	//void print(std::ostream& str) const
 	
 private:
 	struct Element
