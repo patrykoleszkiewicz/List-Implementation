@@ -26,4 +26,8 @@ int main()
     list.erase(2);
     
     test("Erasing","0 1 3 4",list.printToString(' '));
+    
+    list.insert(2,5);
+    
+    test("Inserting","0 1 5 3 4",list.printToString(' '));
 }
