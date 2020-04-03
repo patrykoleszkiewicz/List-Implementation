@@ -2,9 +2,9 @@
 #include <iostream>
 #include <sstream>
 
-void test(std::string expected, std::string actual)
+void test(std::string name, std::string expected, std::string actual)
 {
-    std::cout << "TEST:\n"
+    std::cout << "TEST " << name << ":\n"
                  "Should be: \"" << expected << "\"\n"
                  "Actual:    \"" << actual << "\"\n\n";
 }
@@ -13,20 +13,17 @@ int main()
 {
 	OneWayList<int> list;
 	
-	list.pushBack(50);
-	list.pushBack(100);
-	list.pushBack(150);
-	list.pushBack(200);
-	list.pushBack(250);
+    test("Empty List","",list.printToString(' '));
     
-    std::stringstream test1;
-    list.print(test1,' ');
+    list.pushBack(0);
+    list.pushBack(1);
+    list.pushBack(2);
+    list.pushBack(3);
+    list.pushBack(4);
+    
+    test("Filled list","0 1 2 3 4",list.printToString(' '));
     
     list.erase(2);
     
-    std::stringstream test2;
-    list.print(test2,' ');
-    
-    test("50 100 150 200 250",test1.str());
-    test("50 100 200 250",test2.str());
+    test("Erasing","0 1 3 4",list.printToString(' '));
 }
