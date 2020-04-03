@@ -39,7 +39,15 @@ public:
     
     void insert(std::size_t index, const T& value)
     {
-        if(index < _size + 1u)
+        if(index == 0)
+        {
+            Element* holder = _first;
+            _first = new Element();
+            _first->value = value;
+            _first->next = holder;
+            ++_size;
+        }
+        else if(index < _size + 1u)
         {
             Element* current = _first;
             
