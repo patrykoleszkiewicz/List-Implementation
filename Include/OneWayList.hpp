@@ -36,6 +36,11 @@ public:
 			++_size;
 		}
 	}
+    
+	std::size_t size() const
+	{
+		return _size;
+	}
 	
 	T& at(std::size_t index)
 	{
@@ -56,11 +61,6 @@ public:
 		}
 	}
 	
-	std::size_t size() const
-	{
-		return _size;
-	}
-	
 	void print(std::ostream& str, char separator = 0) const
 	{
 		Element* current = _first;
@@ -75,7 +75,14 @@ public:
 			current = current->next;
 		}
 	}
-	
+    
+    std::string printToString(char separator = 0)
+    {
+        std::stringstream ss;
+        print(ss,separator);
+        return ss.str();
+    }
+    
     void erase(const std::size_t index)
     {
         if(index < _size)
@@ -107,13 +114,6 @@ public:
         {
             throw "";
         }
-    }
-    
-    std::string printToString(char separator)
-    {
-        std::stringstream ss;
-        print(ss,separator);
-        return ss.str();
     }
     
 private:
