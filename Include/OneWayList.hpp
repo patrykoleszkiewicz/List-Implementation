@@ -37,6 +37,29 @@ public:
 		}
 	}
     
+    void insert(std::size_t index, const T& value)
+    {
+        if(index < _size + 1u)
+        {
+            Element* current = _first;
+            
+            for(std::size_t ite = 1; ite < index; ++ite)
+            {
+                current = current->next;
+            }
+            
+            Element* holder = current->next;
+            current->next = new Element();
+            current->next->value = value;
+            current->next->next = holder;
+            ++_size;
+        }
+        else
+        {
+            throw "";
+        }
+    }
+    
 	std::size_t size() const
 	{
 		return _size;
