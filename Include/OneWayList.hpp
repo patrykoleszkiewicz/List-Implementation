@@ -1,5 +1,6 @@
 #pragma once
 #include <ostream>
+#include <sstream>
 
 template <class T>
 class OneWayList
@@ -106,6 +107,13 @@ public:
         {
             throw "";
         }
+    }
+    
+    std::string printToString(char separator)
+    {
+        std::stringstream ss;
+        print(ss,separator);
+        return ss.str();
     }
     
 private:
