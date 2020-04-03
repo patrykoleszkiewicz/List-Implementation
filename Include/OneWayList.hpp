@@ -75,6 +75,37 @@ public:
 		}
 	}
 	
+    void erase(const std::size_t index)
+    {
+        if(index < _size)
+        {
+            if(index == 0)
+            {
+                Element* eraser = _first;
+                _first = _first->next;
+                delete eraser;
+            }
+            else
+            {
+                Element* current = _first;
+                Element* previous = nullptr;
+                
+                for(std::size_t ite = 0; ite < index; ++ite)
+                {
+                    previous = current;
+                    current = current->next;
+                }
+                
+                previous->next = current->next;
+                delete current;
+            }
+        }
+        else
+        {
+            throw "";
+        }
+    }
+    
 private:
 	struct Element
 	{
