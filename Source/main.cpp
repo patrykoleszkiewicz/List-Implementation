@@ -1,5 +1,13 @@
 #include "OneWayList.hpp"
 #include <iostream>
+#include <sstream>
+
+void test(std::string expected, std::string actual)
+{
+    std::cout << "TEST:\n"
+                 "Should be: \"" << expected << "\"\n"
+                 "Actual:    \"" << actual << "\"\n\n";
+}
 
 int main()
 {
@@ -10,9 +18,15 @@ int main()
 	list.pushBack(150);
 	list.pushBack(200);
 	list.pushBack(250);
-	
-	std::cout << list.at(0) << "\n"; //50
-	std::cout << list.at(3) << "\n"; //200
-	
-	list.print(std::cout, ' '); //50 100 150 200 250
+    
+    std::stringstream test1;
+    list.print(test1,' ');
+    
+    list.erase(2);
+    
+    std::stringstream test2;
+    list.print(test2,' ');
+    
+    test("50 100 150 200 250",test1.str());
+    test("50 100 200 250",test2.str());
 }

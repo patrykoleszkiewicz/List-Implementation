@@ -67,7 +67,7 @@ public:
 		while(current != nullptr)
 		{
 			str << current->value;
-			if(separator > 0)
+			if(separator > 0 && current->next > 0)
 			{
 				str << separator;
 			}
@@ -84,6 +84,7 @@ public:
                 Element* eraser = _first;
                 _first = _first->next;
                 delete eraser;
+                --_size;
             }
             else
             {
@@ -98,6 +99,7 @@ public:
                 
                 previous->next = current->next;
                 delete current;
+                --_size;
             }
         }
         else
